@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet 2 - Canvas Infini</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+<div class="theproject">
+    <div class="project-title">
+        <h1>VINTED</h1>
+    </div>
+
+    <div class="project-content" id="project-content">
+
+        <div class="project-left">
+            <div class="project-info">
+                <h2>[ cadre du projet ]</h2>
+                <p>scolaire</p>
+            </div>
+
+            <div class="project-info">
+                <h2>[ durée du projet ]</h2>
+                <p>5 jours</p>
+            </div>
+
+            <div class="project-info">
+                <h2>[ objectif ]</h2>
+                <p>Améliorer l’expérience utilisateur sur Vinted en renforçant la distinction entre les fonctionnalités disponibles pour l’acheteur et le vendeur dans l’interface</p>
+            </div>
+
+            <div class="project-info">
+                <h2>[ rôle endossé ]</h2>
+                <p>ux/ui</p>
+            </div>
+
+            <button class="more" id="more-btn">en savoir plus +</button>
+        </div>
+
+        <div class="project-right">
+            <div class="canvas-container">
+                <div id="interactive-canvas">
+                    <img src="../../img/Corail°.jpg" class="photo" style="top:100px; left:100px; width:350px;">
+                    <img src="../../img/Corail°2.jpg" class="photo" style="top:100px; left:460px; width:725px;">
+                    <img src="../../img/Corail°3.jpg" class="photo" style="top:630px; left:110px; width:1200px;">
+                    <img src="../../img/Corail°4.jpg" class="photo" style="top:110px; left:1350px; width:1040px;">
+                </div>
+
+                <div class="canvas-buttons">
+                    <button id="expand-btn" class="top-left">
+                        <svg width="150" height="105" viewBox="0 0 150 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 79.5L2 103.5M2 103.5H24M2 103.5L59.5 62.5M141.443 25L148 1M148 1H125.809M148 1L90 42" stroke="black" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <button id="reset-btn" class="bottom-left"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 94 95" fill="none">
+                        <path d="M47.5 69.5V94.5M47.5 0.5V25.5M68.5 46.5H93.5M0.5 46.5H25.5M74 47C74 62.464 61.6878 75 46.5 75C31.3122 75 19 62.464 19 47C19 31.536 31.3122 19 46.5 19C61.6878 19 74 31.536 74 47ZM85 47C85 67.9868 67.9868 85 47 85C26.0132 85 9 67.9868 9 47C9 26.0132 26.0132 9 47 9C67.9868 9 85 26.0132 85 47Z" stroke="black" stroke-width="2px" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button id="info-btn" class="bottom-left" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 48 48" fill="none">
+                        <path d="M24 21V34M24 15V19M46 24C46 36.1503 36.1503 46 24 46C11.8497 46 2 36.1503 2 24C2 11.8497 11.8497 2 24 2C36.1503 2 46 11.8497 46 24Z" stroke="black" stroke-width="1.5"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="project-extended" id="project-extended">
+    <h2>Suite du projet</h2>
+    <p>Ici tu peux ajouter les détails, maquettes, ou tout autre contenu.</p>
+</div>
+
+
+<div id="info-popup">
+    <button class="popup-close" id="close-popup">&times;</button>
+    <h2>Informations</h2>
+    <p>Tu peux déplacer et zoomer sur le canvas avec la souris, la molette ou un trackpad.</p>
+</div>
+
+
+<button id="back-btn" onclick="window.location.href='../index.html'">← retour</button>
+
+</body>
+
+<script>
+
+// ===== preview projets sur la home =====
+const links = document.querySelectorAll('.preview-link');
+const previewBox = document.getElementById('preview-box');
+const previewImg = document.getElementById('preview-img');
+
+links.forEach(link => {
+  link.addEventListener('mouseenter', e => {
+    const imgSrc = link.getAttribute('data-preview');
+    previewImg.src = imgSrc;
+    previewBox.style.display = 'block';
+  });
+
+  link.addEventListener('mousemove', e => {
+    previewBox.style.left = e.pageX + 30 + 'px';
+    previewBox.style.top = e.pageY + 'px';
+    previewBox.style.transform = 'translateY(-100%)'; 
+  });
+
+  link.addEventListener('mouseleave', () => {
+    previewBox.style.display = 'none';
+    previewImg.src = '';
+  });
+});
+
+// ===== floating back button =====
+document.addEventListener('DOMContentLoaded', () => {
+  const backBtn = document.getElementById('back-btn');
+  let isVisible = false;
+  let timeout;
+
+  function showButton() {
+    if (!isVisible) {
+      backBtn.style.opacity = '1';
+      backBtn.style.pointerEvents = 'auto';
+      isVisible = true;
+    }
+  }
+
+  function hideButton() {
+    if (isVisible) {
+      backBtn.style.opacity = '0';
+      backBtn.style.pointerEvents = 'none';
+      isVisible = false;
+    }
+  }
+
+  function resetTimeout() {
+    clearTimeout(timeout);
+    timeout = setTimeout(hideButton, 1200);
+  }
+
+  window.addEventListener('mousemove', showButton);
+  window.addEventListener('mousemove', resetTimeout);
+  window.addEventListener('scroll', showButton);
+  window.addEventListener('scroll', resetTimeout);
+
+  backBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// ===== back to previous =====
+const backBtn = document.getElementById('back-btn');
+backBtn.addEventListener('click', () => {
+  window.history.back();
+});
+
+// ===== infinite canvas =====
+const viewport = document.querySelector(".canvas-container");
+const content = document.getElementById("interactive-canvas");
+
+if (viewport && content) {
+  let posX = 0, posY = 0;
+  let scale = 1;
+
+  // --- mousemove ---
+  viewport.addEventListener("mousedown", e => {
+    let startX = e.clientX - posX;
+    let startY = e.clientY - posY;
+
+    const move = evt => {
+      posX = evt.clientX - startX;
+      posY = evt.clientY - startY;
+      content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+    };
+
+    const up = () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseup", up);
+    };
+
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseup", up);
+  });
+
+  // --- wheel and trackpad ---
+  viewport.addEventListener("wheel", e => {
+    e.preventDefault();
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    if (e.ctrlKey) {
+      const zoomFactor = Math.pow(1.005, -e.deltaY);
+      const newScale = Math.min(Math.max(0.1, scale * zoomFactor), 5);
+
+      posX -= (mouseX - posX) * (newScale / scale - 1);
+      posY -= (mouseY - posY) * (newScale / scale - 1);
+
+      scale = newScale;
+    } else {
+      posX -= e.deltaX;
+      posY -= e.deltaY;
+    }
+
+    content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+  }, { passive: false });
+
+  // --- trackpad zoom ---
+  let gestureStartScale = 1;
+  viewport.addEventListener("gesturestart", e => { gestureStartScale = scale; });
+  viewport.addEventListener("gesturechange", e => {
+    const newScale = gestureStartScale * e.scale;
+    const mouseX = viewport.offsetWidth / 2;
+    const mouseY = viewport.offsetHeight / 2;
+
+    posX -= (mouseX - posX) * (newScale / scale - 1);
+    posY -= (mouseY - posY) * (newScale / scale - 1);
+
+    scale = Math.min(Math.max(0.1, newScale), 5);
+    content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+  });
+
+  // --- reset ---
+  const resetBtn = document.getElementById("reset-btn");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      posX = 0;
+      posY = 0;
+      scale = 1;
+      content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+    });
+  }
+}
+
+// ===== expand button =====
+const expandBtn = document.getElementById("expand-btn");
+const projectRight = document.querySelector(".project-right");
+const projectLeft = document.querySelector(".project-left");
+const infoBtn = document.getElementById("info-btn");
+
+let isExpanded = false;
+
+if (expandBtn && projectRight && projectLeft) {
+  expandBtn.addEventListener("click", () => {
+    if (!isExpanded) {
+      // go full screen
+      projectRight.style.width = "100%";
+      projectRight.style.transition = "width 0.6s ease";
+
+      // project left disapear
+      projectLeft.style.opacity = "0";
+      projectLeft.style.pointerEvents = "none";
+
+      if (infoBtn) infoBtn.style.display = "inline-flex";
+
+      isExpanded = true;
+    } else {
+      // going back to small screen
+      projectRight.style.width = "70%";
+      projectRight.style.transition = "width 0.6s ease";
+
+      // project right appear
+      projectLeft.style.opacity = "1";
+      projectLeft.style.pointerEvents = "auto";
+
+      if (infoBtn) infoBtn.style.display = "none";
+
+      isExpanded = false;
+    }
+  });
+}
+
+// ===== popup info =====
+const infoPopup = document.getElementById("info-popup");
+const closePopup = document.getElementById("close-popup");
+
+if (infoBtn && infoPopup && closePopup) {
+  infoBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    infoPopup.style.display = 'block';
+  });
+
+  closePopup.addEventListener('click', () => infoPopup.style.display = 'none');
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') infoPopup.style.display = 'none';
+  });
+}
+
+// ===== unlock scroll and transition to project pt2 =====
+const moreBtn = document.getElementById('more-btn');
+const projExtended = document.getElementById('project-extended');
+
+if (moreBtn && projExtended) {
+  moreBtn.addEventListener('click', () => {
+    // unlock scroll
+    document.body.style.overflow = 'auto';
+    document.documentElement.style.overflow = 'auto';
+
+    // unlock project pt2 visibility
+    projExtended.classList.add('visible');
+
+    // scroll to project pt2
+    setTimeout(() => {
+      projExtended.scrollIntoView({ behavior: 'smooth' });
+    }, 150);
+  });
+}
+
+</script>
