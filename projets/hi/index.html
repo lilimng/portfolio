@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projet 2 - Canvas Infini</title>
   <link rel="stylesheet" href="../../style.css">
-</head>
-
 <body>
 
 <div class="theproject">
     <div class="project-title">
-        <h1>VINTED</h1>
+        <h1>HANDICAP<br>INTERNATIONAL</h1>
     </div>
 
     <div class="project-content" id="project-content">
@@ -24,12 +22,12 @@
 
             <div class="project-info">
                 <h2>[ durée du projet ]</h2>
-                <p>5 jours</p>
+                <p>5 mois</p>
             </div>
 
             <div class="project-info">
                 <h2>[ objectif ]</h2>
-                <p>Améliorer l’expérience utilisateur sur Vinted en renforçant la distinction entre les fonctionnalités disponibles pour l’acheteur et le vendeur dans l’interface</p>
+                <p>optimiser l’expérience digitale des soutiens à Handicap International, donateurs et bénévoles, tout en sachant que l’ONG dépend essentiellement de cette générosité</p>
             </div>
 
             <div class="project-info">
@@ -37,21 +35,20 @@
                 <p>ux/ui</p>
             </div>
 
-            <button class="more" id="more-btn">en savoir plus +</button>
+            <button class="more" id="more-btn">voir plus</button>
         </div>
 
         <div class="project-right">
             <div class="canvas-container">
                 <div id="interactive-canvas">
-                    <img src="../../img/Corail°.jpg" class="photo" style="top:100px; left:100px; width:350px;">
-                    <img src="../../img/Corail°2.jpg" class="photo" style="top:100px; left:460px; width:725px;">
-                    <img src="../../img/Corail°3.jpg" class="photo" style="top:630px; left:110px; width:1200px;">
-                    <img src="../../img/Corail°4.jpg" class="photo" style="top:110px; left:1350px; width:1040px;">
+                    <img src="../../img/hi-maquettes1.webp" class="photo" data-group="maquettes" style="top:80px; left:80px; width:1000px;">
+                    <img src="../../img/hi-maquettes2.webp" class="photo" data-group="maquettes" style="top:80px; left:1150px; width:1600px;">
+                    <img src="../../img/hi-app.webp" class="photo" data-group="app" style="top:100px; left:100px; width:800px;">
                 </div>
 
                 <div class="canvas-buttons">
                     <button id="expand-btn" class="top-left">
-                        <svg width="150" height="105" viewBox="0 0 150 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="150" viewBox="0 0 150 105" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.5 79.5L2 103.5M2 103.5H24M2 103.5L59.5 62.5M141.443 25L148 1M148 1H125.809M148 1L90 42" stroke="black" stroke-width="2"/>
                         </svg>
                     </button>
@@ -64,247 +61,58 @@
                         </svg>
                     </button>
                 </div>
+
+                <div class="tab-selector">
+                    <button id="tab-toggle">maquettes ▾</button>
+                    <div id="tab-menu" class="hidden">
+                    <button class="tab-option" data-group="maquettes">maquettes</button>
+                    <button class="tab-option" data-group="app">app</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <div class="project-extended" id="project-extended">
-    <h2>Suite du projet</h2>
-    <p>Ici tu peux ajouter les détails, maquettes, ou tout autre contenu.</p>
+    <div class="extended-info">
+        <h2>[ concept ]</h2>
+        <p class="main-info">La refonte du site web de Handicap International vise à offrir une expérience plus fluide, intuitive et engageante, avec une navigation simplifiée et des CTA renforcés pour faciliter les dons et l’engagement des bénévoles. En parallèle, une application mobile sera développée pour permettre à chaque utilisateur de s’inspirer des actions des autres et de partager son expérience, créant ainsi une dynamique de motivation et d’inspiration au sein de la communauté.</p>
+        <div class="vinted-bloc">
+            <div class="vinted-line">
+              <p><em><strong>Refonte du site web</strong></em></p>
+              <ul>
+                <li>Modernisation de l’interface : design épuré, accessible et cohérent avec les valeurs de l’ONG (inclusion, solidarité, transparence)</li>
+                <li>Amélioration de l’ergonomie : simplification de la navigation, hiérarchisation claire des contenus, parcours utilisateurs optimisés en fonction des profils</li>
+                <li>Landing page engageante : incite à l’action dès le premier contact, avec un message puissant pour sensibiliser et encourager les dons</li>
+                <li>CTA stratégiques : boutons visibles et incitatifs placés aux moments clés du parcours pour maximiser l’engagement</li>
+              </ul>
+            </div>
+            <div class="vinted-line">
+              <p><em><strong>Optimisation des formulaires de don</strong></em></p>
+              <ul>
+                <li>Simplification du processus : réduction du nombre d’étapes pour rendre le parcours de don plus rapide et fluide</li>
+                <li>Choix de la cause : le donateur pourra choisir la cause qu’il souhaite soutenir parmi une liste de causes clairement exposées sur le site</li>
+                <li>Personnalisation : suggestion de montants de dons, options de dons récurrents, et messages de remerciement personnalisés pour chaque donateur</li>
+              </ul>
+            </div>
+            <div class="vinted-line">
+              <p><em><strong>Création d’une application mobile dédiée aux bénévoles</strong></em></p>
+              <ul>
+                <li>Espace personnel : chaque bénévole pourra suivre ses missions et son impact, mais aussi ceux de la communauté</li>
+                <li>Notifications et actualités : informations en temps réel sur les actions de l’ONG, événements à venir, et nouvelles de la communauté</li>
+                <li>Système de gamification : badges, niveaux, et challenges solidaires pour motiver l’engagement et récompenser les actions</li>
+                <li>Reconnaissance des donateurs : un système permettra aux bénévoles et donateurs mensuels de se distinguer par un badge spécifique sur leur profil</li>
+              </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
-
-<div id="info-popup">
-    <button class="popup-close" id="close-popup">&times;</button>
-    <h2>Informations</h2>
-    <p>Tu peux déplacer et zoomer sur le canvas avec la souris, la molette ou un trackpad.</p>
-</div>
 
 
 <button id="back-btn" onclick="window.location.href='../index.html'">← retour</button>
 
 </body>
 
-<script>
-
-// ===== preview projets sur la home =====
-const links = document.querySelectorAll('.preview-link');
-const previewBox = document.getElementById('preview-box');
-const previewImg = document.getElementById('preview-img');
-
-links.forEach(link => {
-  link.addEventListener('mouseenter', e => {
-    const imgSrc = link.getAttribute('data-preview');
-    previewImg.src = imgSrc;
-    previewBox.style.display = 'block';
-  });
-
-  link.addEventListener('mousemove', e => {
-    previewBox.style.left = e.pageX + 30 + 'px';
-    previewBox.style.top = e.pageY + 'px';
-    previewBox.style.transform = 'translateY(-100%)'; 
-  });
-
-  link.addEventListener('mouseleave', () => {
-    previewBox.style.display = 'none';
-    previewImg.src = '';
-  });
-});
-
-// ===== floating back button =====
-document.addEventListener('DOMContentLoaded', () => {
-  const backBtn = document.getElementById('back-btn');
-  let isVisible = false;
-  let timeout;
-
-  function showButton() {
-    if (!isVisible) {
-      backBtn.style.opacity = '1';
-      backBtn.style.pointerEvents = 'auto';
-      isVisible = true;
-    }
-  }
-
-  function hideButton() {
-    if (isVisible) {
-      backBtn.style.opacity = '0';
-      backBtn.style.pointerEvents = 'none';
-      isVisible = false;
-    }
-  }
-
-  function resetTimeout() {
-    clearTimeout(timeout);
-    timeout = setTimeout(hideButton, 1200);
-  }
-
-  window.addEventListener('mousemove', showButton);
-  window.addEventListener('mousemove', resetTimeout);
-  window.addEventListener('scroll', showButton);
-  window.addEventListener('scroll', resetTimeout);
-
-  backBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-});
-
-// ===== back to previous =====
-const backBtn = document.getElementById('back-btn');
-backBtn.addEventListener('click', () => {
-  window.history.back();
-});
-
-// ===== infinite canvas =====
-const viewport = document.querySelector(".canvas-container");
-const content = document.getElementById("interactive-canvas");
-
-if (viewport && content) {
-  let posX = 0, posY = 0;
-  let scale = 1;
-
-  // --- mousemove ---
-  viewport.addEventListener("mousedown", e => {
-    let startX = e.clientX - posX;
-    let startY = e.clientY - posY;
-
-    const move = evt => {
-      posX = evt.clientX - startX;
-      posY = evt.clientY - startY;
-      content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-    };
-
-    const up = () => {
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("mouseup", up);
-    };
-
-    window.addEventListener("mousemove", move);
-    window.addEventListener("mouseup", up);
-  });
-
-  // --- wheel and trackpad ---
-  viewport.addEventListener("wheel", e => {
-    e.preventDefault();
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-
-    if (e.ctrlKey) {
-      const zoomFactor = Math.pow(1.005, -e.deltaY);
-      const newScale = Math.min(Math.max(0.1, scale * zoomFactor), 5);
-
-      posX -= (mouseX - posX) * (newScale / scale - 1);
-      posY -= (mouseY - posY) * (newScale / scale - 1);
-
-      scale = newScale;
-    } else {
-      posX -= e.deltaX;
-      posY -= e.deltaY;
-    }
-
-    content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-  }, { passive: false });
-
-  // --- trackpad zoom ---
-  let gestureStartScale = 1;
-  viewport.addEventListener("gesturestart", e => { gestureStartScale = scale; });
-  viewport.addEventListener("gesturechange", e => {
-    const newScale = gestureStartScale * e.scale;
-    const mouseX = viewport.offsetWidth / 2;
-    const mouseY = viewport.offsetHeight / 2;
-
-    posX -= (mouseX - posX) * (newScale / scale - 1);
-    posY -= (mouseY - posY) * (newScale / scale - 1);
-
-    scale = Math.min(Math.max(0.1, newScale), 5);
-    content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-  });
-
-  // --- reset ---
-  const resetBtn = document.getElementById("reset-btn");
-  if (resetBtn) {
-    resetBtn.addEventListener("click", () => {
-      posX = 0;
-      posY = 0;
-      scale = 1;
-      content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-    });
-  }
-}
-
-// ===== expand button =====
-const expandBtn = document.getElementById("expand-btn");
-const projectRight = document.querySelector(".project-right");
-const projectLeft = document.querySelector(".project-left");
-const infoBtn = document.getElementById("info-btn");
-
-let isExpanded = false;
-
-if (expandBtn && projectRight && projectLeft) {
-  expandBtn.addEventListener("click", () => {
-    if (!isExpanded) {
-      // go full screen
-      projectRight.style.width = "100%";
-      projectRight.style.transition = "width 0.6s ease";
-
-      // project left disapear
-      projectLeft.style.opacity = "0";
-      projectLeft.style.pointerEvents = "none";
-
-      if (infoBtn) infoBtn.style.display = "inline-flex";
-
-      isExpanded = true;
-    } else {
-      // going back to small screen
-      projectRight.style.width = "70%";
-      projectRight.style.transition = "width 0.6s ease";
-
-      // project right appear
-      projectLeft.style.opacity = "1";
-      projectLeft.style.pointerEvents = "auto";
-
-      if (infoBtn) infoBtn.style.display = "none";
-
-      isExpanded = false;
-    }
-  });
-}
-
-// ===== popup info =====
-const infoPopup = document.getElementById("info-popup");
-const closePopup = document.getElementById("close-popup");
-
-if (infoBtn && infoPopup && closePopup) {
-  infoBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    infoPopup.style.display = 'block';
-  });
-
-  closePopup.addEventListener('click', () => infoPopup.style.display = 'none');
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') infoPopup.style.display = 'none';
-  });
-}
-
-// ===== unlock scroll and transition to project pt2 =====
-const moreBtn = document.getElementById('more-btn');
-const projExtended = document.getElementById('project-extended');
-
-if (moreBtn && projExtended) {
-  moreBtn.addEventListener('click', () => {
-    // unlock scroll
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
-
-    // unlock project pt2 visibility
-    projExtended.classList.add('visible');
-
-    // scroll to project pt2
-    setTimeout(() => {
-      projExtended.scrollIntoView({ behavior: 'smooth' });
-    }, 150);
-  });
-}
-
-</script>
+<script src="../../script.js"></script>

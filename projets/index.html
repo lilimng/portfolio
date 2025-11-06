@@ -18,25 +18,30 @@
   <section class="projects-page">
         <h1>PROJETS</h1>
 
-        <div class="projects-gallery">
-        <a href="vinted/index.html" div class="project-item">
-            <img src="img/projet1.jpg" alt="Projet 1">
-            <h2>VINTED</h2>
-        </a>
-        <a href="corail/index.html" div class="project-item">
-            <img src="img/projet2.jpg" alt="Projet 2">
-            <h2>CORAIL°</h2>
-        </a>
-        <a href="hi/index.html" div class="project-item">
-            <img src="img/projet3.jpg" alt="Projet 3">
-            <h2>HANDICAP INTERNATIONAL</h2>
-        </a>
-        <a href="projet1.html" div class="project-item">
-            <img src="img/projet4.jpg" alt="Projet 4">
-            <h2>Nom du projet 4</h2>
-        </a>
+        <div class="tab-container">
+          <div class="tab active" data-category="uxui">ux/ui</div>
+          <div class="tab" data-category="graphique">graphique</div>
         </div>
-    </section>
+
+        <div class="projects-list">
+          <a href="vinted/index.html" class="project-item preview-projet" data-category="uxui" data-preview="../img/logo-vinted.png">
+              <h2>VINTED</h2>
+          </a>
+          <a href="physaliaa/index.html" class="project-item preview-projet" data-category="uxui" data-preview="../img/logo-physaliaa.png">
+              <h2>PHYSALIAA</h2>
+          </a>
+          <a href="hi/index.html" class="project-item preview-projet" data-category="uxui" data-preview="../img/logo-hi.png">
+              <h2>HANDICAP INT.</h2>
+          </a>
+          <div class="project-item" data-category="graphique" data-preview="../img/logo-vinted.png">
+              <h2>[ en cours ]</h2>
+          </a>
+        </div>
+  </section>
+
+  <div id="preview-display">
+    <img id="preview-logo" alt="aperçu">
+  </div>
 
   <!-- Bouton retour -->
   <button id="back-btn">← retour</button>
