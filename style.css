@@ -913,3 +913,32 @@ ul{
   width: 150px;
   height: 225px;
 }
+
+
+
+
+@media screen and (max-width: 1024px) {
+  body {
+    background: #f5f5f5;
+  }
+
+  body > *:not(.mobile-block) {
+    display: none !important;
+  }
+
+  body::before {
+    content: "Le portfolio est malheureusement indisponible sur mobile et tablette";
+    white-space: pre-line;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    height: 100vh;
+    width: 80vw;
+    text-align: center;
+    font-family: "Grifterbold", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+  }
+}
