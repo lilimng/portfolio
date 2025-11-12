@@ -15,8 +15,8 @@
 
 body {
   font-family: 'GrifterBold', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased; /* Chrome, Safari */
-  -moz-osx-font-smoothing: grayscale;  /* Firefox */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -113,7 +113,7 @@ body {
 }
 
 #preview-display img {
-  max-height: 50px;
+  max-height: 30px;
   width: auto;
 }
 
@@ -137,6 +137,10 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
   justify-items: center;
+}
+
+.projects-gallery h2:hover{
+    color: #909090;
 }
 
 .projects-list {
@@ -171,7 +175,7 @@ body {
 }
 
 .project-item h2:hover {
-  color: #909090;
+  color: inherit!important;
 }
 
 .tab-container {
@@ -339,7 +343,7 @@ html, body {
 }
 
 .project-info h2 {
-  font-family: 'Hurin', 'Grifterbold'; /* ou une autre typo plus sobre */
+  font-family: 'Hurin', 'Grifterbold';
   font-size: 18px;
   font-weight: initial;
   text-transform: none;
@@ -373,19 +377,41 @@ html, body {
   border: 1px solid #e0e0e0aa;
   border-radius: 12px;
   box-shadow: #909090;
-  width: 110px;
+  width: fit-content;
 }
 
 .more:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
   transition: 0.25s ease;
+  cursor: pointer;
 }
 
 .more:active {
-  /* Effet incrusté (pression) */
   box-shadow: inset 0 1px 6px rgba(0,0,0,0.20);
 }
 
+a {
+  display: inline-block;
+  width: fit-content;
+  text-decoration: none;
+  color: inherit;
+}
+
+.a button{
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited,
+a:active,
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 
 .canvas-container {
   width: 100%;
@@ -559,7 +585,7 @@ html, body {
 }
 
 .theproject {
-  height: auto; /* prend tout l'écran */
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -581,7 +607,7 @@ html, body {
 }
 
 .extended-info h2{
-  font-family: 'Hurin', 'GrifterBold'; /* ou une autre typo plus sobre */
+  font-family: 'Hurin', 'GrifterBold';
   font-size: 18px;
   font-weight: initial;
   text-transform: none;
@@ -595,7 +621,7 @@ html, body {
 }
 
 p {
-  font-family: 'Manrope', sans-serif; /* ou une autre typo plus sobre */
+  font-family: 'Manrope', sans-serif;
   font-size: 16px;
   text-transform: none;
   letter-spacing: 0;
@@ -605,8 +631,8 @@ p {
 
 .physaliaa-bloc{
   display: flex;
-  gap: 60px; /* espace entre les deux colonnes */
-  flex-wrap: wrap; /* pour que ça passe bien sur mobile */
+  gap: 60px;
+  flex-wrap: wrap;
   margin-bottom: 25px;
 }
 
@@ -628,7 +654,7 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10; /* les boutons au-dessus du canvas */
+  z-index: 10;
 }
 
 
@@ -649,7 +675,7 @@ p {
 #tab-toggle {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  width: 120px;      /* largeur fixe */
+  width: 120px;
   padding: 6px 6px;
   background: rgba(255,255,255,0.35);
   backdrop-filter: blur(10px);
@@ -658,7 +684,7 @@ p {
   cursor: pointer;
   font-size: 14px;
   white-space: nowrap;
-  min-width: max-content; /* → garde la taille du texte le plus grand */
+  min-width: max-content;
   transition: background 0.2s, transform 0.2s;
   text-align: center;
   color:#333;
@@ -682,7 +708,7 @@ p {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   overflow: hidden;
-  width: 100%; /* ✅ la même largeur que le bouton */
+  width: 100%;
 }
 
 #tab-menu.hidden {
@@ -809,7 +835,7 @@ ul{
 /* Mode acheteur */
 .toggle-btn.buyer {
   border-color: #027782;
-  flex-direction: row-reverse; /* ⬅️ inverse le texte et le rond */
+  flex-direction: row-reverse;
 }
 
 .toggle-btn.buyer .toggle-label {
@@ -840,7 +866,7 @@ ul{
 .pics {
   position: relative;
   width: 100%;
-  height: 100vh; /* canvas plein écran */
+  height: 100vh;
 }
 
 .pic-title{
@@ -898,7 +924,7 @@ ul{
 }
 
 .photo-card {
-  position: absolute;   /* obligatoire pour que top/left fonctionne */
+  position: absolute;
   background-size: cover;
   background-position: center;
   cursor: grab;
@@ -942,3 +968,4 @@ ul{
     color: #111;
   }
 }
+

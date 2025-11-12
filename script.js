@@ -127,27 +127,43 @@ if (viewport && content) {
     window.addEventListener("mouseup", up);
   });
 
-  // --- wheel and trackpad ---
-  viewport.addEventListener("wheel", e => {
-    e.preventDefault();
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
+// --- wheel and trackpad separation (version fluide) ---
+viewport.addEventListener("wheel", e => {
+  e.preventDefault();
 
-    if (e.ctrlKey) {
-      const zoomFactor = Math.pow(1.005, -e.deltaY);
-      const newScale = Math.min(Math.max(0.1, scale * zoomFactor), 5);
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
 
-      posX -= (mouseX - posX) * (newScale / scale - 1);
-      posY -= (mouseY - posY) * (newScale / scale - 1);
+  // Détection : petit delta → trackpad, sinon → souris
+  const isTrackpad = Math.abs(e.deltaY) < 50 && Math.abs(e.deltaX) < 50;
 
-      scale = newScale;
-    } else {
-      posX -= e.deltaX;
-      posY -= e.deltaY;
-    }
+  // === CAS 1 : Zoom (molette ou pinch) ===
+  if (!isTrackpad || e.ctrlKey) {
+    // Zoom exponentiel plus fluide
+    const zoomFactor = Math.pow(1.0035, -e.deltaY);
+    const newScale = Math.min(Math.max(0.2, scale * zoomFactor), 3);
 
-    content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-  }, { passive: false });
+    const rect = viewport.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+    const zoomPointX = (offsetX - posX) / scale;
+    const zoomPointY = (offsetY - posY) / scale;
+
+    posX -= zoomPointX * (newScale - scale);
+    posY -= zoomPointY * (newScale - scale);
+
+    scale = newScale;
+  }
+
+  // === CAS 2 : Pan (trackpad normal) ===
+  else {
+    posX -= e.deltaX;
+    posY -= e.deltaY;
+  }
+
+  content.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+}, { passive: false });
+
 
   // --- trackpad zoom ---
   let gestureStartScale = 1;
