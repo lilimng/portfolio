@@ -3,42 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio - projets et photographie">
-  <title>Lili Moeung</title>
-
-  <!-- Lien vers ton CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/favicon.png">
-</head>
+  <title>Projet 2 - Canvas Infini</title>
+  <link rel="stylesheet" href="../../style.css">
 <body>
 
-  <!-- SECTION HERO -->
-  <section class="section-top">
-    <div class="section-left">
-      <h1>LILI MOEUNG</h1>
-      <p>Jeune diplômée, je suis passionnée par tout ce qui tourne autour du produit et l'impact que les interfaces peuvent avoir sur l'expérience utilisateur. Mon parcours m'a permis de travailler sur divers projets allant de la conception de wireframes et de maquettes, à la construction de sites web</p>
-      <p>Motivée par l'innovation et la créativité, je suis toujours en quête de nouveaux défis. Je cherche à intégrer une équipe où je pourrai perfectionner mes compétences tout en contribuant à des projets ayant un réel impact</p>
-      <p>Flexible et curieuse, je souhaite avant tout pouvoir évoluer dans un environnement qui valorise l'apprentissage continu ainsi que l'échange d'idées</p>
+<div class="theproject">
+    <div class="project-title">
+        <h1>VITALYS</h1>
     </div>
-    
-    <div class="section-right">
+
+    <div class="project-content" id="project-content">
+
+        <div class="project-left">
+            <div class="project-info">
+                <h2>[ cadre du projet ]</h2>
+                <p>professionnel</p>
+            </div>
+
+            <div class="project-info">
+                <h2>[ durée du projet ]</h2>
+                <p>1 jour</p>
+            </div>
+
+            <div class="project-info">
+                <h2>[ objectif ]</h2>
+                <p>réaliser des maquettes de site vitrine de naturopathie</p>
+            </div>
+        </div>
+
+        <div class="project-right">
+            <div class="canvas-container">
+                <div id="interactive-canvas">
+                    <img src="../../img/vitalys-maquettes1.webp" class="photo" style="top:120px; left:80px; width:240px;">
+                    <img src="../../img/vitalys-maquettes2.webp" class="photo" style="top:120px; left:330px; width:240px;">
+                    <img src="../../img/vitalys-maquettes3.webp" class="photo" style="top:120px; left:580px; width:240px;">
+                </div>
+
+                <div class="canvas-buttons">
+                    <button id="expand-btn" class="top-left">
+                        <svg width="150" viewBox="0 0 150 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 79.5L2 103.5M2 103.5H24M2 103.5L59.5 62.5M141.443 25L148 1M148 1H125.809M148 1L90 42" stroke="black" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <button id="reset-btn" class="bottom-left"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 94 95" fill="none">
+                        <path d="M47.5 69.5V94.5M47.5 0.5V25.5M68.5 46.5H93.5M0.5 46.5H25.5M74 47C74 62.464 61.6878 75 46.5 75C31.3122 75 19 62.464 19 47C19 31.536 31.3122 19 46.5 19C61.6878 19 74 31.536 74 47ZM85 47C85 67.9868 67.9868 85 47 85C26.0132 85 9 67.9868 9 47C9 26.0132 26.0132 9 47 9C67.9868 9 85 26.0132 85 47Z" stroke="black" stroke-width="2px" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button id="website-btn" class="bottom-right">voir le site</button>
+                    <a href="https://www.vitalys-naturopathe.fr" target="_blank">
+                    <button id="website-btn" class="bottom-right">voir le site</button>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-
-  <!-- NAVIGATION (simple exemple, tu peux la bouger ailleurs) -->
-  <section class="section-bottom">
-    <nav class="main-nav">
-       <a href="projets/index.html" class="preview-link" data-preview="img/img-projets.png">projets</a>
-       <a href="photographie/index.html" class="preview-link" data-preview="img/preview-photo.jpg">photographie</a>
-       <a href="contact/index.html" class="preview-link" data-preview="img/preview-contact.jpg">contact</a>
-    </nav>
-  </section>
+</div>
 
 
 
-  <script src="script.js"></script>
+<button id="back-btn" onclick="window.location.href='../index.html'">← retour</button>
 
 </body>
-</html>
+
+<script src="../../script.js"></script>
