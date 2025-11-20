@@ -144,10 +144,12 @@ body {
 }
 
 .projects-list {
-  display: inline-block;
+  display: flex;
   flex-direction: column;
-  justify-items: center;
+  align-items: center;   /* centre tout */
+  justify-content: flex-start;
   margin-top: 80px;
+  width: 100%; 
 }
 
 .project-item {
